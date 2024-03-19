@@ -29,10 +29,10 @@ const dados:alimentos[]=[
 
 const renderItem = ({ item }: { item: alimentos }) => (
     <TouchableOpacity style={styles.item}>
-        <Text>{item.nome}</Text>
-        <Text>{item.preco}</Text>
+        <Text style={styles.text}>{item.nome}</Text>
+        <Text style={styles.text1}>{item.preco}</Text>
         <Text>{item.descricao}</Text>
-        
+        <Image source={item.image} style={styles.image}/>
             </TouchableOpacity>
 );
 
@@ -43,7 +43,7 @@ function HappyMeal():React.JSX.Element{
       <View style={styles.header}>
       <Image source={require('./assets/images/icon.jpg')} style={styles.headerIcon}/>
       </View>
-      <FlatList
+      <FlatList style={styles.container}
       showsVerticalScrollIndicator={false}
                 data={dados}
                 renderItem={renderItem}
@@ -55,13 +55,27 @@ function HappyMeal():React.JSX.Element{
 }
 const styles =StyleSheet.create({
     container: {
-        backgroundColor: '##FFFAE5',
+        backgroundColor: '#FFFAE5',
         flex: 1
    
     },
     headerIcon:{
         width:300,
         height:300
+    },
+    image:{
+        width:320,
+        height:320
+    },
+    text:{
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'white'
+    },
+    text1:{
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white'
     },
     item: {
         backgroundColor: '#bbdefb',
@@ -74,7 +88,7 @@ const styles =StyleSheet.create({
 
     },
     header: {
-        backgroundColor: '##FFFAE5',
+        backgroundColor: '#FFFAE5',
         alignItems: 'center',
         paddingVertical: 50
 
