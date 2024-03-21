@@ -17,12 +17,22 @@ const dados: alimentos[] = [
 ];
 
 const renderItem = ({ item }: { item: alimentos }) => (
-    <TouchableOpacity style={styles.item}>
+    <View style={styles.item}>
         <Text style={styles.text}>{item.nome}</Text>
         <Text style={styles.linha}>━━━━━━━━━━━ • ✿ • ━━━━━━━━━━━</Text>
         <Image source={item.image} style={styles.image} />
         <Text style={styles.textpreco}>{item.preco}</Text>
-    </TouchableOpacity>
+        <View style={styles.buttom}>
+            <Text style={styles.textquantidade}>Quantidade:</Text>
+            <TouchableOpacity>
+                <Text style={styles.buttomzin}>   +   </Text>
+            </TouchableOpacity>
+            <TextInput></TextInput>
+            <TouchableOpacity>
+                <Text style={styles.buttomzin}>   -   </Text>
+            </TouchableOpacity>
+        </View>
+    </View>
 
 );
 
@@ -42,17 +52,8 @@ function CarrinhoHappyMeal(): React.JSX.Element {
                 renderItem={renderItem}
                 keyExtractor={(alimentos) => alimentos.id}
             />
-              <View style={styles.buttom}>
-                    <Text>Quantidade:</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.buttomzin}>   +   </Text>
-                    </TouchableOpacity>
-                    <TextInput></TextInput>
-                    <TouchableOpacity>
-                        <Text style={styles.buttomzin}>   -   </Text>
-                    </TouchableOpacity>
-                </View>
-                
+
+
             <View style={styles.footer}>
                 <TouchableOpacity>
                     <Image source={require('./assets/images/house.png')} style={styles.footerIcon} />
@@ -67,7 +68,7 @@ function CarrinhoHappyMeal(): React.JSX.Element {
                     <Image source={require('./assets/images/perfil.webp')} style={styles.footerIcon} />
                 </TouchableOpacity>
 
-              
+
             </View>
 
         </View>
@@ -154,16 +155,25 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto'
     },
-    buttom:{
+    buttom: {
         alignItems: 'center',
-        flexDirection:'row',
-        justifyContent:'center'
+        paddingLeft: 70,
+        backgroundColor: '#a2d6f9',
+        borderWidth: 3,
+        borderColor: '#6798c0',
+        borderRadius: 10,
+        width: '75%',
     },
-    buttomzin:{
+    buttomzin: {
         borderTopWidth: 0.2,
         borderColor: 'white',
         backgroundColor: '#fec89a',
-        borderRadius:10
+        borderRadius: 10
+    },
+    textquantidade:{
+        fontSize: 18,
+        color: 'white',
+        
     }
 });
 
