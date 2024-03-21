@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar, View, Text, StyleSheet, FlatList, Image, TouchableOpacity, TextInput } from 'react-native';
 
 interface alimentos {
@@ -27,7 +27,7 @@ const renderItem = ({ item }: { item: alimentos }) => (
             <TouchableOpacity>
                 <Text style={styles.buttomzin}>   +   </Text>
             </TouchableOpacity>
-            <TextInput></TextInput>
+            <TextInput style={styles.numero}></TextInput>
             <TouchableOpacity>
                 <Text style={styles.buttomzin}>   -   </Text>
             </TouchableOpacity>
@@ -40,6 +40,7 @@ const renderItem = ({ item }: { item: alimentos }) => (
 
 function CarrinhoHappyMeal(): React.JSX.Element {
     return (
+        
         <View style={styles.container}>
             <StatusBar backgroundColor='#fff2b2' barStyle='light-content' />
             <View style={styles.header}>
@@ -159,10 +160,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: 70,
         backgroundColor: '#a2d6f9',
-        borderWidth: 3,
+        borderWidth: 2,
         borderColor: '#6798c0',
         borderRadius: 10,
-        width: '75%',
+        width: '70%',
     },
     buttomzin: {
         borderTopWidth: 0.2,
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
     textquantidade:{
         fontSize: 18,
         color: 'white',
+        marginRight:20
         
     }
 });
