@@ -4,7 +4,6 @@ import { StatusBar, View, Text, StyleSheet, FlatList, Image, TouchableOpacity, T
 interface alimentos {
     id: string;
     nome: string;
-
     preco: string;
     descricao: string;
     image: any;
