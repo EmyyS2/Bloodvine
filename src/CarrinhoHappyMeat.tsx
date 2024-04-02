@@ -23,6 +23,7 @@ const renderItem = ({ item }: { item: alimentos }) => (
         <Image source={item.image} style={styles.image} />
         <Text style={styles.textpreco}>{item.preco}</Text>
         <View style={styles.buttom}>
+        
             <Text style={styles.textquantidade}>Quantidade:</Text>
             <TouchableOpacity>
                 <Text style={styles.buttomzin}>   +   </Text>
@@ -30,6 +31,7 @@ const renderItem = ({ item }: { item: alimentos }) => (
             <TextInput style={styles.numero}></TextInput>
             <TouchableOpacity>
                 <Text style={styles.buttomzin}>   -   </Text>
+               
             </TouchableOpacity>
         </View>
     </View>
@@ -157,13 +159,14 @@ const styles = StyleSheet.create({
         marginRight: 'auto'
     },
     buttom: {
-        alignItems: 'center',
-        paddingLeft: 70,
-        backgroundColor: '#a2d6f9',
-        borderWidth: 2,
-        borderColor: '#6798c0',
-        borderRadius: 10,
-        width: '70%',
+        flexDirection:"row",
+    },
+    numero:{
+  color:'white',
+        textAlign:'center',
+        justifyContent:'center',
+        fontSize:18,
+        marginTop: -14
     },
     buttomzin: {
         borderTopWidth: 0.2,
@@ -174,9 +177,26 @@ const styles = StyleSheet.create({
     textquantidade:{
         fontSize: 18,
         color: 'white',
-        marginRight:20
+        marginLeft:20,
         
-    }
+        
+    },
+    adicionais: {
+        fontSize: 13,
+        backgroundColor: '#FFFAE5',
+        borderWidth: 2,
+        height:40,
+        borderColor: '#6798c0',
+        borderRadius: 90,
+        width: '60%',
+        paddingLeft: 10
+
+    },
+    adicionaisalinha: {
+        alignItems: 'center',
+        flexDirection:'row',
+        justifyContent:'center'
+    },
 });
 
 export default CarrinhoHappyMeal;

@@ -34,7 +34,16 @@ const renderItem = ({ item }: { item: alimentos }) => (
         <Text style={styles.textpreco}>{item.preco}</Text>
         <Text style={styles.textdescricao}>{item.descricao}</Text>
         <Image source={item.image} style={styles.image} />
+
+        <View style={styles.buttom}>
+    <TouchableOpacity style={styles.carrinho}>
+                <Text style={styles.texto}>+🛍</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.carrinho}>
+                <Text style={styles.texto}>-🛍</Text>
+            </TouchableOpacity ></View>
     </TouchableOpacity>
+    
 
 );
 
@@ -59,11 +68,13 @@ function HappyMeal(): React.JSX.Element {
                 renderItem={renderItem}
                 keyExtractor={(alimentos) => alimentos.id}
             />
+            
             <View style={styles.footer}>
                 <TouchableOpacity>
-                    <Image source={require('./assets/images/house.png')} style={styles.footerIcon} />
+                    <Image source={require('./assets/images/house.png')} style={styles.footerIcon}  />
+
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity >
                     <Image source={require('./assets/images/cardapio.webp')} style={styles.footerIcon} />
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -100,6 +111,24 @@ const styles = StyleSheet.create({
         borderColor: '#6798c0',
         borderWidth: 3
 
+    },
+    buttom:{
+      flexDirection:"row",
+    },
+    carrinho:{
+        backgroundColor:'#6798c0',
+        opacity:10,
+        width:70,
+        height:30,
+        marginTop:10,
+        borderRadius:10,
+        marginLeft:10,
+    },
+    texto:{
+        color:'white',
+        textAlign:'center',
+        justifyContent:'center',
+        fontSize:20,
     },
     text: {
         fontSize: 30,
