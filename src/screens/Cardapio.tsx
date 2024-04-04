@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, View, Text, StyleSheet, FlatList, Image, TouchableOpacity, TextInput } from 'react-native';
+import { StatusBar, View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ImageBackground, TextInput } from 'react-native';
 
 interface alimentos {
     id: string;
@@ -52,6 +52,7 @@ const renderItem = ({ item }: { item: alimentos }) => (
 function Cardapio(): React.JSX.Element {
     return (
         <View style={styles.container}>
+            <ImageBackground source={require('../assets/images/fundo01.jpg')} resizeMode="cover" style={styles.container}></ImageBackground>
             <StatusBar backgroundColor='#fff2b2' barStyle='light-content' />
             <View style={styles.header}>
                 <Image source={require('../assets/images/icones.png')} style={styles.headerIcon} />
@@ -93,7 +94,6 @@ function Cardapio(): React.JSX.Element {
 }
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFFAE5',
         flex: 1
 
     },
