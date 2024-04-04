@@ -1,14 +1,17 @@
 import React from 'react';
-import CardapioHappyMeal from './src/CardapioHappyMeal';
-import CarrinhoHappyMeal from './src/CarrinhoHappyMeat';
-import LoginHappyMeal from './src/LoginHappyMeal';
+import Cardapio from './src/screens/Cardapio';
+import Carrinho from './src/screens/Carrinho';
+import Login from './src/screens/Login';
 import CadastroProduto from './src/screens/CadastroProduto';
+import CadastroCliente from './src/screens/CadastroCliente';
 function App():React.JSX.Element{
   return(
-    //<CarrinhoHappyMeal/>
- //<CardapioHappyMeal/>
- //<LoginHappyMeal/>
- <CadastroProduto/>
+    //<Carrinho/>
+ //
+ //<Cardapio/>
+//<Login/>
+ //<CadastroProduto/>
+ <CadastroCliente/>
   );
 }
 
