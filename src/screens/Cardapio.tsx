@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     footer: {
         borderTopWidth: 0.2,
         borderColor: 'white',
-        backgroundColor: '#370617',
+        backgroundColor: '#640d14',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
