@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, StatusBar, StyleSheet, Text, TextInput,TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StatusBar, StyleSheet, Text, TextInput,TouchableOpacity, View } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import axios from 'axios';
 
@@ -22,7 +22,7 @@ const CadastroProduto: React.FC = () => {
             type:'image/jpeg',
             name:new Date()+ '.jpg',
         });
-
+ console.log (formData);
 const response= await axios.post('http://10.137.11.222:8000/api/produtos', formData,{
     headers:{
         'Content-Type':'multipart/form-data'
@@ -76,9 +76,10 @@ const selecionarImagem=()=>{
 
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor="red" barStyle="light-content" />
+            <ScrollView>
+            <StatusBar backgroundColor="#640d14" barStyle="light-content" />
             <View style={styles.header}>
-                <Text style={styles.headerText}>Top Food</Text>
+            <Image source={require('../assets/images/icone.png')} style={styles.headerIcon} />
             </View>
             <View style={styles.form}>
                 <TextInput
@@ -112,17 +113,25 @@ const selecionarImagem=()=>{
                     <Text style={styles.imageButtonText}>Cadastrar Produto</Text>
                 </TouchableOpacity>
             </View>
+            </ScrollView>
         </View>
     );
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:'#000000'
     },
     header: {
-        backgroundColor: 'red',
+        backgroundColor: '#5B1824',
         paddingVertical: 10,
         alignItems: 'center',
+    },
+    headerIcon: {
+        width: 350,
+        height: 350,
+        marginBottom: -20,
+        marginTop: -100
     },
     headerText: {
         fontSize: 20,
@@ -131,19 +140,22 @@ const styles = StyleSheet.create({
     },
     form: {
         padding: 10,
-        backgroundColor: '#f0f0f0',
-        marginBottom: 10
+        backgroundColor: '#b21e35',
+        marginBottom: -10,
+        marginTop:50,
+        borderRadius:20,
+        
     },
     input: {
         height: 40,
-        borderColor: 'grey',
+        borderColor: 'white',
         borderWidth: 1,
-        marginBottom: 10,
+        marginBottom: 2,
         paddingHorizontal: 10,
-        borderRadius: 10
+        borderRadius: 5
     },
     imageButton: {
-        backgroundColor: 'red',
+        backgroundColor: '#5B1824',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center',
@@ -164,7 +176,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     button: {
-        backgroundColor: 'red',
+        backgroundColor: '#5B1824',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center'
