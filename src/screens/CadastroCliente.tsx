@@ -10,6 +10,7 @@ const CadastroCliente: React.FC = () => {
     const [telefone, setTelefone] = useState<string>('');
     const [endereco, setEndereco] = useState<string>('');
     const [email, setEmail] = useState<string>('');
+    const [cpf, setCpf] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
     const CadastroCliente = async () => {
@@ -19,6 +20,7 @@ const CadastroCliente: React.FC = () => {
             formData.append('telefone', telefone);
             formData.append('endereco', endereco);
             formData.append('email', email);
+            formData.append('cpf', cpf);
             formData.append('password', password);
             formData.append('imagem', {
                 uri: imagem,
@@ -31,6 +33,7 @@ const CadastroCliente: React.FC = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            //console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -108,6 +111,12 @@ const CadastroCliente: React.FC = () => {
                     placeholder="E-mail"
                     value={email}
                     onChangeText={setEmail}
+                />
+                 <TextInput
+                    style={styles.input}
+                    placeholder="CPF"
+                    value={cpf}
+                    onChangeText={setCpf}
                 />
                 <TextInput
                     style={styles.input}
