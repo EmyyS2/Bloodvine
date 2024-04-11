@@ -88,6 +88,9 @@ const CadastroCliente: React.FC = () => {
                 <Image source={require('../assets/images/icone.png')} style={styles.headerIcon} />
             </View>
             <View style={styles.form}>
+            <View style={styles.alinhamentoImagemSelecionada}>
+                    {imagem ? <Image source={{ uri: imagem }} style={styles.imagemSelecionada} /> : null}
+                </View>
                 <TextInput
                     style={styles.input}
                     placeholder="Nome"
@@ -124,9 +127,6 @@ const CadastroCliente: React.FC = () => {
                     value={password}
                     onChangeText={setPassword}
                     multiline />
-                <View style={styles.alinhamentoImagemSelecionada}>
-                    {imagem ? <Image source={{ uri: imagem }} style={styles.imagemSelecionada} /> : null}
-                </View>
                 <TouchableOpacity style={styles.imageButton} onPress={selecionarImagem}>
                     <Text style={styles.imageButtonText}>Selecionar Image</Text>
                 </TouchableOpacity>
@@ -193,8 +193,10 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         resizeMode: 'cover',
-        borderRadius: 5,
+        borderRadius: 1000,
         marginBottom: 10,
+        borderWidth:2,
+        borderColor:'#5B1824'
     },
     alinhamentoImagemSelecionada: {
         alignItems: 'center'
