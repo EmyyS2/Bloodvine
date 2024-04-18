@@ -9,7 +9,7 @@ function App():React.JSX.Element{
     //<Carrinho/>
 //<Cardapio/>
 //<Login/>
-//
+
 <CadastroProduto/>
  //<CadastroCliente/>
   );

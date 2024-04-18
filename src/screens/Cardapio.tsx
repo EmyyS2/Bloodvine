@@ -28,25 +28,26 @@ const renderItem = ({ item }: { item: Produto }) => (
 
 
 function Cardapio(): React.JSX.Element {
-    const [produto, setCadastro] = useState<Produto[]>([]);
+    const [produto, setProduto] = useState<Produto[]>([]);
    
-    const [error, setError] = useState<string>("");
+    const [erro, setErro] = useState<string>("");
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get('http://10.137.11.222:8000/api/produtos');
-                if(true == response.data.status){
-                    setCadastro(response.data.data)
-                }
+                const response = await axios.get('http://10.137.11.222:8000/api/produtos/index');
+                setProduto(response.data);
+
+                console.log(produto)
             } catch (error) {
-                setError("Ocorreu um erro");
+                setErro("Ocorreu um erro");
                 console.log(error);
             }
         }
 
         fetchData();
     }, []);
+
 
     return (
         <View style={styles.container}>
@@ -64,7 +65,7 @@ function Cardapio(): React.JSX.Element {
                 showsVerticalScrollIndicator={false}
                 data={produto}
                 renderItem={renderItem}
-                keyExtractor={(alimentos) => alimentos.id}
+                keyExtractor={(item) => item.id}
             />
 
             <View style={styles.footer}>
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         fontSize: 15,
         fontWeight: 'bold',
-        color: 'white'
+        color: '#fff'
     },
     item: {
         backgroundColor: '#7C2F3D',
